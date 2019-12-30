@@ -17,6 +17,11 @@
     text-align: center;
 }
 
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
 .sr-only {
     @include scut-hide-visually;
 }
