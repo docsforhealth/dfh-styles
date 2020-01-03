@@ -1,6 +1,7 @@
 .link {
     color: inherit;
     line-height: normal;
+    text-decoration: underline;
 
     &:hover,
     &:visited,
@@ -41,7 +42,8 @@
         color: $color-gray-dark-1;
         border-color: $color-gold-dark-1;
     }
-    &--outline, &--outline.button--secondary {
+    &--outline,
+    &--outline.button--secondary {
         background-color: $color-none;
         color: $color-navy;
         border-color: $color-navy-light-1;

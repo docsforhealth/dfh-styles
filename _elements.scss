@@ -1,5 +1,5 @@
 .button-container {
-    &__button {
+    & &__button {
         width: 100%;
 
         & + & {
@@ -11,17 +11,16 @@
         // ensure that buttons stay on same line
         display: flex;
 
-        &--expand-width &__button {
-            width: 100%;
-        }
-
-        &__button {
+        & &__button {
             width: auto;
 
             & + & {
                 margin-top: 0;
                 margin-left: $baseunit * 0.5;
             }
+        }
+        &--expand-width &__button {
+            width: 100%;
         }
     }
 }
