@@ -17,7 +17,9 @@
     // ideally would use `first-of-class` and `last-of-class` to implement this
     // like the `-of-type` used in the default `p` styling but the `-of-class`
     // selectors don't exist (yet)
-    margin-bottom: 1em;
+    &, &:last-of-type {
+        margin-bottom: 1em;
+    }
 
     &--one-line {
         @include scut-truncate;
