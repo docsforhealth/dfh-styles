@@ -183,6 +183,13 @@
         & + & {
             margin-top: $baseunit * 2;
         }
+        // Wordpress TinyMCE editor cannot add text and link classes for us
+        p {
+            @extend .text;
+        }
+        a {
+            @extend .link;
+        }
     }
     & &__logo-container img {
         width: $width-logo;
