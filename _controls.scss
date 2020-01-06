@@ -38,15 +38,25 @@
         line-height: $height-control-small;
     }
     &--secondary {
-        background-color: $color-gold;
-        color: $color-gray-dark-1;
-        border-color: $color-gold-dark-1;
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $color-gold;
+            color: $color-gray-dark-1;
+            border-color: $color-gold-dark-1;
+        }
     }
     &--outline,
     &--outline.button--secondary {
-        background-color: $color-none;
-        color: $color-navy;
-        border-color: $color-navy-light-1;
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $color-none;
+            color: $color-navy;
+            border-color: $color-navy-light-1;
+        }
     }
 }
 
@@ -54,11 +64,9 @@
     display: flex;
     flex-wrap: wrap;
 
-    // TODO what about other inline styles?
     &--inline &__control {
         margin-left: 0;
     }
-
     &__item {
         width: 100%;
         min-width: 0;
