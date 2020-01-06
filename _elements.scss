@@ -1,10 +1,9 @@
 .button-container {
     & &__button {
         width: 100%;
-
-        & + & {
-            margin-top: $baseunit * 0.5;
-        }
+    }
+    &__button + &__button {
+        margin-top: $baseunit * 0.5;
     }
 
     @media (min-width: $media-width-landscape-small-mobile) {
@@ -13,11 +12,10 @@
 
         & &__button {
             width: auto;
-
-            & + & {
-                margin-top: 0;
-                margin-left: $baseunit * 0.5;
-            }
+        }
+        &__button + &__button {
+            margin-top: 0;
+            margin-left: $baseunit * 0.5;
         }
         &--expand-width &__button {
             width: 100%;

@@ -140,6 +140,18 @@
     }
 }
 
+// When users add content in a container, we want to make sure is appropriate vertically spaced
+#content > .container {
+    &:first-child {
+        margin-top: $baseunit * 3;
+    }
+    &:last-child {
+        margin-bottom: $baseunit * 3;
+    }
+}
+#content > .container + .container {
+    margin-top: $baseunit;
+}
 .container {
     width: 100%;
     // `!important` to ensure that padding is preserved in all cases
