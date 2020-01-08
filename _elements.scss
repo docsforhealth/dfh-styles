@@ -34,7 +34,7 @@
 }
 
 .tag {
-    @include scut_truncate;
+    @include scut-truncate;
 
     display: inline-block;
     padding: ($baseunit * 0.1) ($baseunit * 0.5) ($baseunit * 0.15);

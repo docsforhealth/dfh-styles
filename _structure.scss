@@ -6,6 +6,12 @@
 
     &__contents {
         flex-grow: 1;
+
+        // So that `height: 100%;` will work
+        // https://stackoverflow.com/a/1122415
+        &__content {
+            height: 100%;
+        }
     }
 }
 
@@ -118,9 +124,17 @@
                     margin-right: 0;
                 }
             }
-            .current-menu-item a {
+            .menu-item a {
                 position: relative;
                 font-weight: $font-weight-normal;
+
+                &,
+                &:hover,
+                &:focus,
+                &:active {
+                    // Don't neeed the default anchor tag underline because we've added our own
+                    text-decoration: none;
+                }
 
                 &:before {
                     display: none;
@@ -132,9 +146,18 @@
                     bottom: $baseunit * 0.4;
                     height: 2px;
                     width: 100%;
-                    background-color: $color-navy;
+                    background-color: $color-none;
                     border-radius: $border-radius;
                 }
+                &:hover,
+                &:focus {
+                    &:after {
+                        background-color: $color-navy-light-1;
+                    }
+                }
+            }
+            .current-menu-item a:after {
+                background-color: $color-navy;
             }
         }
     }

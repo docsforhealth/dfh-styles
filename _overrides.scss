@@ -6,6 +6,19 @@ html {
     color: $color-gray-dark-1;
 }
 
+// So that `height: 100%;` will work
+// https://stackoverflow.com/a/1122415
+html,
+body {
+    height: 100%;
+}
+
+// So that outlines don't have that unsightly overhang outside of element
+* {
+    outline-offset: -3px;
+    outline-width: 3px;
+}
+
 // see https://gomakethings.com/smooth-scrolling-links-with-only-css/
 html {
     scroll-behavior: smooth;

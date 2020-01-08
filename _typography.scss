@@ -17,7 +17,8 @@
     // ideally would use `first-of-class` and `last-of-class` to implement this
     // like the `-of-type` used in the default `p` styling but the `-of-class`
     // selectors don't exist (yet)
-    &, &:last-of-type {
+    &,
+    &:last-of-type {
         margin-bottom: 1em;
     }
 
@@ -96,7 +97,7 @@
     }
     &__subtitle,
     &__nav {
-        @include scut_truncate;
+        @include scut-truncate;
 
         display: block;
         font-size: 70%;
