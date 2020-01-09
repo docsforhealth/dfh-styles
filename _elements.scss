@@ -51,3 +51,13 @@
         background-color: $color-navy-light-2;
     }
 }
+
+.ajax-loader-none {
+    @extend .container;
+    @extend .container--narrow;
+    @extend .text;
+    @extend .text--light;
+
+    text-align: center;
+    padding-top: $baseunit * 2;
+}
