@@ -13,6 +13,9 @@
             height: 100%;
         }
     }
+    &__footer {
+        flex-shrink: 0;
+    }
 }
 
 .nav {
