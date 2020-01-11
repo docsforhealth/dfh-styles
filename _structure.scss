@@ -252,9 +252,10 @@
 
     @media (min-width: $media-width-tablet) {
         flex-wrap: nowrap;
+        justify-content: space-between;
 
         &__content {
-            width: 50%;
+            width: calc(50% - #{$baseunit});
             min-width: 0;
 
             & + & {
