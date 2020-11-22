@@ -37,13 +37,15 @@
     @include scut-truncate;
 
     display: inline-block;
+    margin-right: $baseunit * 0.2;
     padding: ($baseunit * 0.1) ($baseunit * 0.5) ($baseunit * 0.15);
     color: $color-gray;
     border: 1px solid $color-seafoam-dark-2;
     border-radius: $border-radius;
 
-    & + & {
-        margin-left: $baseunit * 0.2;
+    // use margin-right instead of margin-left for consistent left spacing when tags wrap
+    &:last-of-type {
+        margin-right: 0;
     }
 
     &--notable {
