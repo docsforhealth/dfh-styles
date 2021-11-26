@@ -125,7 +125,7 @@
             }
             & > * {
                 min-width: 0;
-                margin-right: $baseunit;
+                margin-right: $baseunit * 1.5;
 
                 &:last-child {
                     margin-right: 0;
@@ -205,6 +205,20 @@
 
         &--narrow {
             width: 45 * $baseunit;
+        }
+    }
+    @media (min-width: $media-width-desktop) {
+        width: 70 * $baseunit;
+
+        &--narrow {
+            width: 48 * $baseunit;
+        }
+    }
+    @media (min-width: $media-width-large-desktop) {
+        width: 80 * $baseunit;
+
+        &--narrow {
+            width: 50 * $baseunit;
         }
     }
 }

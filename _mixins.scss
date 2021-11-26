@@ -3,15 +3,15 @@
 
     // See https://css-tricks.com/full-width-containers-limited-width-parents/#article-header-id-6
     &:#{if($pseudoelement-after, 'after', 'before')} {
-        content: '';
+        content: if($bg-color == false, none, '');
         position: absolute;
         top: 0;
         left: 50%;
-        margin-left: -50vw;
         background-color: $bg-color;
         height: 100%;
         width: 100vw;
         z-index: $z-index-behind-1;
+        transform: translate(-50%, 0);
         // Allow click events to propagate through
         // See: https://stackoverflow.com/a/4839672
         pointer-events: none;
@@ -24,4 +24,86 @@
     border: 1px solid $color-gray-light-1;
     box-shadow: 0px 0px 15px $color;
     border-radius: $border-radius;
+}
+
+@mixin vertical-slide(
+    $child-selector,
+    $open-selector,
+    $max-height: 50vh,
+    $timing: 0.2s
+) {
+    #{$open-selector} #{$child-selector} {
+        max-height: $max-height;
+
+        @content;
+    }
+    #{$child-selector} {
+        @include scroll-vertical;
+
+        max-height: 0;
+        transition: max-height $timing;
+    }
+}
+
+// see https://iamsteve.me/blog/entry/using-flexbox-for-horizontal-scrolling-navigation
+// [1]: Automatic overflow means a scroll bar won’t be present if it isn’t needed
+// [2]: Make it smooth scrolling on iOS devices
+// [3]: Hide the ugly scrollbars in Edge until the scrollable area is hovered
+@mixin scroll-vertical() {
+    overflow-y: auto; /* [1] */
+    -webkit-overflow-scrolling: touch; /* [2] */
+    -ms-overflow-style: -ms-autohiding-scrollbar; /* [3] */
+}
+
+@mixin scroll-horizontal() {
+    overflow-x: auto; /* [1] */
+    -webkit-overflow-scrolling: touch; /* [2] */
+    -ms-overflow-style: -ms-autohiding-scrollbar; /* [3] */
+}
+
+@mixin auto-space-vertical($amount: $baseunit, $skip-last: true) {
+    & > * {
+        margin-bottom: $amount;
+    }
+    @if $skip-last {
+        & > :last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@mixin copy-button($breakpoint) {
+    @extend .button;
+    @extend .button--outline;
+
+    position: relative;
+    width: 100%;
+    border-width: 0;
+
+    &:after {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        height: $height-control;
+        width: $height-control;
+        background-image: url('~assets/images/icon-copy.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    @media (min-width: $breakpoint) {
+        @include scut-image-replace;
+
+        width: auto;
+        height: $height-control;
+        background-image: url('~assets/images/icon-copy.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        &:after {
+            content: none;
+        }
+    }
 }

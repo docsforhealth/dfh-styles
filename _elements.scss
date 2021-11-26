@@ -27,9 +27,18 @@
     padding-left: $baseunit * 2;
 
     &--unstyled {
+        @include scut-list-unstyled; // resets left padding too
+    }
+    &--hanging-indent {
+        $indent-size: $baseunit * 2;
+
         @include scut-list-unstyled;
 
-        padding-left: 0;
+        & > li {
+            @include scut-hanging-indent($indent-size);
+
+            margin-bottom: $baseunit * 0.5;
+        }
     }
 }
 
@@ -62,4 +71,16 @@
 
     text-align: center;
     padding-top: $baseunit * 2;
+}
+
+.detail-container {
+    padding-top: $unit-vertical-spacing-small;
+
+    @media (min-width: $media-width-laptop) {
+        padding: $unit-vertical-spacing-small 0
+            ($unit-vertical-spacing-small * 2);
+    }
+    @media (min-width: $media-width-desktop) {
+        padding: ($baseunit * 2) 0;
+    }
 }
