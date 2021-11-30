@@ -32,7 +32,9 @@
     &--hanging-indent {
         $indent-size: $baseunit * 2;
 
-        @include scut-list-unstyled;
+        // manually style instead of using `scut-list-unstyled` to preserve vertical spacing
+        list-style-type: none;
+        padding-left: 0;
 
         & > li {
             @include scut-hanging-indent($indent-size);

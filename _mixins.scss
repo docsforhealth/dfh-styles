@@ -72,7 +72,13 @@
     }
 }
 
-@mixin copy-button($breakpoint) {
+@mixin copy-button(
+    $breakpoint,
+    $icon-path-initial,
+    $icon-path-done,
+    $class-modifier-active,
+    $class-modifier-done
+) {
     @extend .button;
     @extend .button--outline;
 
@@ -86,24 +92,38 @@
         display: inline-block;
         height: $height-control;
         width: $height-control;
-        background-image: url('~assets/images/icon-copy.svg');
+        background-image: $icon-path-initial;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
     }
 
+    &#{$class-modifier-active} {
+        animation: expand-fade-out 0.2s;
+    }
+    &#{$class-modifier-done}:after {
+        background-image: $icon-path-done;
+    }
+
     @media (min-width: $breakpoint) {
         @include scut-image-replace;
 
-        width: auto;
         height: $height-control;
-        background-image: url('~assets/images/icon-copy.svg');
+        width: $height-control;
+        background-image: $icon-path-initial;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
 
         &:after {
             content: none;
+        }
+        &#{$class-modifier-done} {
+            background-image: $icon-path-done;
+
+            &:after {
+                content: none;
+            }
         }
     }
 }
