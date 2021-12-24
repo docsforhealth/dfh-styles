@@ -223,6 +223,18 @@
     }
 }
 
+.detail-container {
+    padding-top: $unit-vertical-spacing-small;
+
+    @media (min-width: $media-width-laptop) {
+        padding: $unit-vertical-spacing-small 0
+            ($unit-vertical-spacing-small * 2);
+    }
+    @media (min-width: $media-width-desktop) {
+        padding: ($baseunit * 2) 0;
+    }
+}
+
 .footer {
     @extend .container;
     @include full-width-bg($color-gold-light-2);
