@@ -104,6 +104,8 @@
         display: block;
         margin-bottom: $baseunit * 0.5;
     }
+
+    $search-control-padding: $baseunit * 3;
     &__control {
         width: calc(100% + #{$offset-form-item-1 * 2});
         margin-left: $offset-form-item-1 * -1;
@@ -113,7 +115,7 @@
         border-radius: $border-radius;
 
         &--search {
-            padding-right: $baseunit * 3;
+            padding-right: $search-control-padding;
             background-image: url('#{$path-base-styles}/base-assets/images/icon-search.svg');
             background-repeat: no-repeat;
             background-size: contain;
@@ -130,10 +132,61 @@
             width: calc(100% + #{$offset-form-item-2 * 2});
             margin-left: $offset-form-item-2 * -1;
             padding: $offset-form-item-2;
+        }
+    }
 
-            &--search {
-                padding-right: $baseunit * 3;
+    // to be applied to wrapper `div` around control element
+    // displays button in upper right corner of control that can be used to clear control contents
+    // need to change markup in this way because inputs controls cannot contain pseudoelements
+    // see https://stackoverflow.com/a/4660434
+    &__clear-control {
+        position: relative;
+
+        &__clear {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: $offset-form-item-1 * -1;
+            height: $height-control;
+            width: $height-control;
+
+            background-image: url('#{$path-base-styles}/base-assets/images/icon-close.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+
+            @media (min-width: $media-width-tablet) {
+                right: $offset-form-item-2 * -1;
             }
         }
+    }
+    // animate width changes as button is added/removed
+    &__clear-control &__control {
+        transition: all 0.05s;
+    }
+    // styling for when the control button should become visible
+    &__clear-control--visible &__clear-control__clear {
+        display: block;
+    }
+    &__clear-control--visible &__control {
+        padding-right: $height-control + $offset-form-item-1;
+
+        @media (min-width: $media-width-tablet) {
+            padding-right: $height-control + $offset-form-item-2;
+        }
+    }
+    &__clear-control--visible &__control--search {
+        padding-right: $height-control + $search-control-padding;
+        background-position: center right $height-control;
+    }
+    // no prior sibling CSS selector exists so the clear button must be AFTER the input
+    // see https://stackoverflow.com/a/1817801
+    &__clear-control--visible &__control ~ &__clear-control__clear {
+        border-left: 1px solid $color-seafoam-dark-2;
+    }
+    // if resizable textarea, then fix button to top right corner with rounded edge
+    &__clear-control--visible textarea ~ &__clear-control__clear {
+        border-bottom: 1px solid $color-seafoam-dark-2;
+        border-bottom-left-radius: $border-radius;
     }
 }
