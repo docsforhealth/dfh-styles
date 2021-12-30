@@ -28,7 +28,7 @@
     flex-direction: column-reverse;
 
     &--open &__menu-toggle {
-        background-image: url('base-assets/images/icon-close.svg');
+        background-image: url('#{$path-base-styles}/base-assets/images/icon-close.svg');
     }
     &--open &__links {
         @include full-width-bg($color-gold-light-2) {
@@ -48,7 +48,7 @@
         margin-top: $height-nav * 0.02;
     }
     &__menu-toggle {
-        background-image: url('base-assets/images/icon-menu.svg');
+        background-image: url('#{$path-base-styles}/base-assets/images/icon-menu.svg');
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
