@@ -1,9 +1,7 @@
 @include scut-reset;
 
 html {
-    font-size: 14px;
-    font-family: 'Open Sans', sans-serif;
-    color: $color-gray-dark-1;
+    @extend %default-text;
 }
 
 // So that `height: 100%;` will work

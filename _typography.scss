@@ -9,6 +9,12 @@
     font-weight: $font-weight-bold;
 }
 
+%default-text {
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    color: $color-gray-dark-1;
+}
+
 .text {
     font-size: $baseunit;
     line-height: normal;
