@@ -1,0 +1,16 @@
+
+/**
+ * For parent projects that want to import ALL of the base styling files, this file
+ * serves as a convenient import for ALL base styles imported in the correct order
+ */
+
+@import 'vars';
+@import 'overrides';
+@import 'animations';
+@import 'mixins';
+
+@import 'controls';
+@import 'elements';
+@import 'structure';
+@import 'typography';
+@import 'utils';
