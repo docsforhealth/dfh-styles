@@ -68,7 +68,7 @@
         padding: $baseunit 0 ($baseunit * 2);
         transition: max-height 0.5s;
 
-        .menu-item a {
+        li a {
             @extend .heading--4;
 
             display: block;
@@ -131,7 +131,7 @@
                     margin-right: 0;
                 }
             }
-            .menu-item a {
+            li a {
                 @include scut-truncate;
 
                 position: relative;
@@ -270,7 +270,7 @@
         display: flex;
         flex-wrap: wrap;
 
-        .menu-item {
+        li {
             width: 100%;
             margin-top: $baseunit;
             color: $color-navy;
@@ -297,7 +297,7 @@
         &__links {
             margin-left: $width-logo * 0.3;
 
-            .menu-item {
+            li {
                 width: auto;
                 margin-top: 0;
 
