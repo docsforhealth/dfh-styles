@@ -19,7 +19,7 @@
     }
 }
 
-@mixin card-bg($color: rgba(0, 0, 0, 0.12)) {
+@mixin card-bg($color: $color-transparent-gray-light-1) {
     background-color: $color-white;
     border: 1px solid $color-gray-light-1;
     box-shadow: 0px 0px 15px $color;
