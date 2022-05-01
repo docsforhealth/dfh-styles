@@ -21,7 +21,7 @@
 
 @mixin card-bg($color: $color-transparent-gray-light-1) {
     background-color: $color-white;
-    border: 1px solid $color-gray-light-1;
+    border: 1px solid $color-gray-light-2;
     box-shadow: 0px 0px 15px $color;
     border-radius: $border-radius;
 }
