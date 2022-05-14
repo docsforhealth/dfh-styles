@@ -1,11 +1,13 @@
 @font-face {
     font-family: 'Open Sans';
-    src: url('#{$path-base-styles}/base-assets/fonts/OpenSans-Regular.ttf') format('truetype');
+    src: url('#{$path-base-styles}/base-assets/fonts/OpenSans-Regular.ttf')
+        format('truetype');
     font-weight: $font-weight-normal;
 }
 @font-face {
     font-family: 'Open Sans';
-    src: url('#{$path-base-styles}/base-assets/fonts/OpenSans-SemiBold.ttf') format('truetype');
+    src: url('#{$path-base-styles}/base-assets/fonts/OpenSans-SemiBold.ttf')
+        format('truetype');
     font-weight: $font-weight-bold;
 }
 
@@ -14,6 +16,27 @@
     font-family: 'Open Sans', sans-serif;
     color: $color-gray-dark-1;
     line-height: normal;
+}
+%small-text {
+    font-size: $baseunit * 0.857;
+
+    @media (min-width: $media-width-tablet) {
+        font-size: $baseunit * 0.875;
+    }
+}
+%medium-text {
+    font-size: $baseunit * 0.9285;
+
+    @media (min-width: $media-width-tablet) {
+        font-size: $baseunit * 1.0625;
+    }
+}
+%large-text {
+    font-size: $baseunit * 1;
+
+    @media (min-width: $media-width-tablet) {
+        font-size: $baseunit * 1.25;
+    }
 }
 
 .text {
@@ -42,20 +65,12 @@
     &--light {
         color: $color-gray;
     }
-    &--large {
-        font-size: $baseunit * 1;
-    }
-    &--small {
-        font-size: $baseunit * 0.857;
-    }
 
-    @media (min-width: $media-width-tablet) {
-        &--large {
-            font-size: $baseunit * 1.25;
-        }
-        &--small {
-            font-size: $baseunit * 0.875;
-        }
+    &--small {
+        @extend %small-text;
+    }
+    &--large {
+        @extend %large-text;
     }
 }
 

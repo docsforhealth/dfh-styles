@@ -39,7 +39,7 @@
     text-decoration: none;
 
     &:not(&--small) {
-        @extend .text--large;
+        @extend %large-text;
     }
     &--small {
         height: $height-control-small;
@@ -98,8 +98,7 @@
         }
     }
     &__text {
-        @extend .text;
-        @extend .text--small;
+        @extend %small-text;
 
         display: block;
         margin-bottom: $baseunit * 0.5;
