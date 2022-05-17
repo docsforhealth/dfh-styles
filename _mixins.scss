@@ -61,6 +61,12 @@
     -ms-overflow-style: -ms-autohiding-scrollbar; /* [3] */
 }
 
+@mixin center-flex() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @mixin auto-space-vertical($amount: $baseunit, $skip-last: true) {
     & > * {
         margin-bottom: $amount;
